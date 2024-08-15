@@ -29,7 +29,7 @@ while True:
             if operation_mode == "=":
                 print(f"result = {result}")
                 break
-            
+
             number = int(input("Next Number: "))
 
             if operation_mode == "+":
