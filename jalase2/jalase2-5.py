@@ -10,16 +10,24 @@ letters = "python"
 
 for letter in letters:
     print(letter)
-
+"""
 
 x = 0
 for i in range(4):
     x = x + 1
     print(f"asli : {x}")
+
+    y = 0
+    for j in range(10):
+        y = y + 1
+        print(y)
+
+"""
     for j in range(2):
         x = x + 1
         print(f"farei: {x}")
        # print(f"this is j = {j}")
+"""
 
 
 x = 0
@@ -34,7 +42,6 @@ while count < 5:
     print(count)
     count += 1
 
-    """
 
 count = 0
 state = True
@@ -49,4 +56,3 @@ while state:
 
 while True:
     print("this will run forever")
-

@@ -19,6 +19,7 @@ while True:
         exit()
 
     print(f"{first_number} {operation_mode} {second_number} = {result}")
+    
     want_out = input("Do you wanna do another operation? (y or n) ")
     print('\n===================')
 
