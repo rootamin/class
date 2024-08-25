@@ -1,7 +1,7 @@
 # a simple, running calculator
 while True:
-    first_number = int(input("First number: "))
-    second_number = int(input("Second number: "))
+    first_number = float(input("First number: "))
+    second_number = float(input("Second number: "))
 
     operation_mode = input("What operation do you want? (+ - x %): ")
 
@@ -21,7 +21,6 @@ while True:
     print(f"{first_number} {operation_mode} {second_number} = {result}")
     
     want_out = input("Do you wanna do another operation? (y or n) ")
-    print('\n===================')
 
     if want_out == "n":
         break

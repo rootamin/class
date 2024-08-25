@@ -1,6 +1,6 @@
 # a simple calculator
-first_number = int(input("First number: "))
-second_number = int(input("Second number: "))
+first_number = float(input("First number: "))
+second_number = float(input("Second number: "))
 
 operation_mode = input("What operation do you want? (+ - x %): ")
 
@@ -15,6 +15,6 @@ elif operation_mode == "%":
 
 else:
     print("Invalid operation.")
-    exit()
+    exit()   # This is not necessary but it would exit our code without showing the error.
 
 print(f"{first_number} {operation_mode} {second_number} = {result}")
