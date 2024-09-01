@@ -6,7 +6,6 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 
-
 def encyption(message, salt):
     salt = bytes(salt, 'utf8')
 
@@ -58,22 +57,54 @@ while True:
     if operation == "e":
         file_name = input("Enter your file name: ")
 
-        with open(file_name, "r") as file_object:
+        absolute_path = os.getcwd() + "/"
+
+        if os.path.exists(absolute_path + file_name):
+            pass
+        else:
+            print("File does not exist.")
+            continue
+
+        with open(absolute_path + file_name, "r") as file_object:
             data = file_object.read()
         
         enc_message = data
         enc_password = input("Enter your password: ")
 
-        with open("encrypted.txt", "w") as enc_object:
+        with open(absolute_path + "encrypted.txt", "w") as enc_object:
             enc_content = str(encyption(enc_message, enc_password))
-            enc_data = file_object.write(enc_content)
+            enc_filtered = enc_content.split("'")
+            print(enc_filtered)
+            enc_data = enc_object.write(enc_filtered[1])
 
     
     elif operation == "d":
-        dec_message = "s"
-        dec_password = input("Enter the password: ")
+        file_name = input("Enter your file name: ")
 
-        print(decryption(dec_message, dec_password))
+        absolute_path = os.getcwd() + "/"
+
+        if os.path.exists(absolute_path + file_name):
+            pass
+        else:
+            print("File does not exist.")
+            continue
+
+        with open(absolute_path + file_name, "r") as file_object:
+            data = file_object.read()
+        
+        enc_message = data
+        enc_password = input("Enter your password: ")
+
+        with open(absolute_path + "raw.txt", "w") as enc_object:
+            enc_content = str(decryption(enc_message, enc_password))
+            enc_filtered = enc_content.split("'")
+            
+            enc_filtered_2 = enc_filtered[1].split("\\n")
+            print(enc_filtered_2)
+            
+            for i in enc_filtered_2:
+                enc_data = enc_object.write(i + "\n")
+
 
     else:
         print("Invalid Operation")
